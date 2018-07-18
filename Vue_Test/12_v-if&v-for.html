@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if和v-for组合使用</title>
+</head>
+<body>
+    <!--当v-if和v-for出现在一起时，v-for优先级更高。也就是说，会先遍历，再判断条件。-->
+    <div id="app">
+        <ul>
+            <li v-for="(user,index) in users" v-if="user.gender === '女'">
+                {{index}} - {{user.name}} : {{user.gender}} : {{user.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                users:[
+                    {name:'柳岩', gender:'女', age: 21},
+                    {name:'胡歌', gender:'男', age: 30},
+                    {name:'范冰冰', gender:'女', age: 24},
+                    {name:'刘亦菲', gender:'女', age: 18},
+                    {name:'古力娜扎', gender:'女', age: 25}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

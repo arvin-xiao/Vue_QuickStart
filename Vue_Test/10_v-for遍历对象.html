@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历对象值</title>
+</head>
+<body>
+    <h4>遍历对象
+        v-for除了可以迭代数组，也可以迭代对象。语法基本类似<br>
+        语法：<br>
+        v-for="value in object"<br>
+        v-for="(value,key) in object"<br>
+        v-for="(value,key,index) in object"<br><br>
+        - 1个参数时，得到的是对象的值<br>
+        - 2个参数时，第一个是值，第二个是键<br>
+        - 3个参数时，第三个是索引，从0开始<br>
+    </h4>
+
+    <div id="app">
+        <ul>
+            <li v-for="(value,key,index) in user">
+                {{index}} - {{key}} : {{value}}
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                user:{name:'柳岩', gender:'女', age: 21}
+            }
+        })
+    </script>
+
+</body>
+</html>

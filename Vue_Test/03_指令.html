@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>指令</title>
+</head>
+<body>
+    <h4>v-text和v-html可以看做是单向绑定，数据影响了视图渲染，但是反过来就不行。</h4>
+    <div id="app">
+        v-text:<span v-text="message"></span> <br/>     <!--文本输出-->
+        v-html:<span v-html="message"></span>           <!--html解析文本-->
+
+        <span v-text="message"></span>
+        <span v-html="message"></span>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                message:'<h1>指令测试数据</h1>'
+            }
+        });
+    </script>
+
+
+</body>
+</html>

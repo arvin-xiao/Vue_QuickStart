@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for索引遍历</title>
+</head>
+<body>
+    <h4>
+        语法: v-for="(item,index) in items"<br><br>
+        - items：要迭代的数组<br>
+        - item：迭代得到的数组元素别名<br>
+        - index：迭代到的当前元素索引，从0开始。<br>
+    </h4>
+
+    <div id="app">
+        <ul>
+            <li v-for="(user,index) in users">
+                {{index}} - {{user.name}} : {{user.gender}} : {{user.age}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                users:[
+                    {name:'柳岩', gender:'女', age: 21},
+                    {name:'范冰冰', gender:'女', age: 24},
+                    {name:'刘亦菲', gender:'女', age: 18},
+                    {name:'古力娜扎', gender:'女', age: 25}
+                ]
+            }
+        })
+    </script>
+
+</body>
+</html>

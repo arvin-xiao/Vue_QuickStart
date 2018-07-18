@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义局部组件</title>
+</head>
+<body>
+    <div id="app">
+        <counter></counter>
+        <my1></my1>
+        <my2></my2>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        //自定义局部组件
+        const counter = {
+            template:'<button @click="count++">统计点击{{count}}次了</button>',
+            data(){
+                return{
+                    count:0
+                }
+            }
+        }
+        const mycomponent1 = {
+            template:'<button @click="count++">统计点击{{count}}次了</button>',
+            data(){
+                return{
+                    count:0
+                }
+            }
+        }
+        const mycomponent2 = {
+            template:'<button @click="num--">点击后自减{{num}}</button>',
+            data(){
+               return{
+                   num:0
+               }
+            }
+        }
+        let vm = new Vue({
+            el:'#app',
+            components:{
+                //申明标签名:对应组件名
+                counter:counter,
+                my1:mycomponent1,
+                my2:mycomponent2
+            }
+        });
+    </script>
+</body>
+</html>

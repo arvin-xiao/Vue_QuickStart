@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件修饰符&按键修饰符</title>
+</head>
+<body>
+    <!-- 只有在 `keyCode` 是 13 时调用 `vm.submit()` -->
+    <input @keyup.13="submit">
+
+    <!-- 同上 -->
+    <input v-on:keyup.enter="submit">
+
+    <!-- 缩写语法 -->
+    <input @keyup.enter="submit">
+
+
+    <!--组合按钮-->
+
+    <!-- Alt + C -->
+    <input @keyup.alt.delete="clear">
+
+    <!-- Ctrl + Click -->
+    <div @click.ctrl="doSomething">Do something</div>
+
+</body>
+</html>

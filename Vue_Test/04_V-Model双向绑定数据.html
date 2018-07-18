@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>V-Model</title>
+</head>
+<body>
+    <h4>刚才的v-text和v-html可以看做是单向绑定，数据影响了视图渲染，但是反过来就不行。<br>
+        接下来学习的v-model是双向绑定，视图（View）和模型（Model）之间会互相影响。</h4>
+
+    <div id="app">
+        <input type="checkbox" v-model="language" value="Java" />Java<br/>
+        <input type="checkbox" v-model="language" value="PHP" />PHP<br/>
+        <input type="checkbox" v-model="language" value="Swift" />Swift<br/>
+        <h3>
+            你选择了：{{language.join(',')}}
+        </h3>
+
+        <input type="checkbox" v-model="rest" value="rest" name="12" id="123">休息
+        <input type="radio" v-model="gender" value="male">male
+        <h3>
+            休息：<span v-text="rest"></span><br>
+            性别：<span v-text="gender"></span>
+        </h3>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                language:[],
+                rest:Boolean,
+                gender:String
+            }
+        });
+        // - 多个CheckBox对应一个model时，model的类型是一个数组，单个checkbox值是boolean类型
+        // - radio对应的值是input的value值
+        // - input 和textarea 默认对应的model是字符串
+        // - select单选对应字符串，多选对应也是数组
+    </script>
+
+</body>
+</html>
