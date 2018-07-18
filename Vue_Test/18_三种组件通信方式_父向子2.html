@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>三种组件通信方式</title>
+</head>
+<body>
+    <h3 style="color: blue">测试父向子传递props</h3>
+
+    <div id="app">
+        <h2>如下课程：</h2>
+        <!-- 使用子组件的同时，传递属性，这里使用了v-bind，指向了父组件自己的属性lessons -->
+        <my-list v-bind:items="lessons"></my-list>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script type="text/javascript">
+        //自定义组件
+        const myList = {
+            template:'\
+                      <ul>\
+        	            <li v-for="item in items" :key="item.id">{{item.id}} : {{item.name}}</li>\
+        	          </ul>\ ',
+            props:{             // 通过props来接收父组件传递来的属性
+                items:{         // 这里定义items属性
+                    type:Array, // 要求必须是Array类型
+                    default:[]  // 如果父组件没有传，那么给定默认值是[]
+                }
+            }
+        }
+
+        let app = new Vue({
+            el:"#app",
+            components:{
+                myList // 当key和value一样时，可以只写一个
+            },
+            data:{
+                lessons:[
+                    {id:1, name: 'Java'},
+                    {id:2, name: 'PHP'},
+                    {id:3, name: 'Python'},
+                ]
+            }
+        })
+    </script>
+
+</body>
+</html>
