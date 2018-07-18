@@ -5,25 +5,50 @@
     <title>三种组件通信方式</title>
 </head>
 <body>
-    <h3 style="color: blue">测试子父向</h3>
+<h3 style="color: blue">测试子父向</h3>
 
-    <div id="app">
+<div id="app">
+    <h2>num: {{num}}</h2>
+    <!--使用子组件的时候，传递num到子组件中-->
+    <counter :count="num" @incr="plus" @desc="minus"></counter>
+</div>
 
-    </div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
 
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <script type="text/javascript">
-        Vue.component("introduce",{
-            template:'<h3>{{title}}</h3>',
-            data:{
-                title:'Hello Vue!'
+    //子组件，定义了两个按钮，点击数字num会加或减
+    Vue.component("counter", {
+        template: '\
+            <div>\
+                <button @click="increment">加</button>  \
+                <button @click="decrement">减</button>  \
+            </div>',
+        props: ['count'],// count是从父组件获取的
+        methods: {
+            increment() { //vue提供了一个内置的this.$emit函数，用来调用父组件绑定的函数
+                this.$emit('incr');
+            },
+            decrement() {
+                this.$emit('desc');
             }
+        }
+    });
 
-        })
-        var app = new Vue({
-            el:"#app"
-        })
-    </script>
+    let app = new Vue({
+        el: "#app",
+        data: {
+            num: 0
+        },
+        methods: { // 父组件中定义操作num的方法
+            minus() {
+                this.num--;
+            },
+            plus() {
+                this.num++;
+            }
+        }
+    })
+</script>
 
 </body>
 </html>

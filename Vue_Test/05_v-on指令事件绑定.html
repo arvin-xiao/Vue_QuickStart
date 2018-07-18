@@ -4,29 +4,31 @@
     <title>事件绑定</title>
 </head>
 <body>
-    <h3>语法：v-on:事件名="js片段或函数名" 或者@事件名</h3>
-    <div id="app">
-        <!--事件中直接写js片段-->
-        <button v-on:click="num++">增加</button><br/>
-        <!--事件指定一个回调函数，必须是Vue实例中定义的函数-->
-        <button @click="decrement">减少</button><br/>
-        <h1>num: {{num}}</h1>
-    </div>
+<h3>语法：v-on:事件名="js片段或函数名" 或者@事件名</h3>
+<div id="app">
+    <!--事件中直接写js片段-->
+    <button v-on:click="num++">增加</button>
+    <br/>
+    <!--事件指定一个回调函数，必须是Vue实例中定义的函数-->
+    <button @click="decrement">减少</button>
+    <br/>
+    <h1>num: {{num}}</h1>
+</div>
 
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <script type="text/javascript">
-        var app = new Vue({
-            el:"#app",
-            data:{
-                num:1
-            },
-            methods:{
-                decrement(){
-                    this.num--;
-                }
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script type="text/javascript">
+    var app = new Vue({
+        el: "#app",
+        data: {
+            num: 1
+        },
+        methods: {
+            decrement() {
+                this.num--;
             }
-        })
-    </script>
+        }
+    })
+</script>
 
 </body>
 </html>
