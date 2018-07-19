@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<body>
+<div id="app">
+    <!--<a href="#" @click.prevent="showLogin=true">登录页</a>&nbsp;&nbsp;&nbsp;-->
+    <!--<a href="#" @click.prevent="showLogin=false">注册页</a>-->
+    <!--<login v-show="showLogin"></login>-->
+    <!--<register v-show="!showLogin"></register>-->
+
+    <!--<a href="#/login" >登录页</a>&nbsp;&nbsp;&nbsp;-->
+    <!--<a href="#/register" >注册页</a>-->
+
+
+
+    <!--标签替换a标签省去#-->
+    <router-link to="/login">登录页</router-link>
+    <router-link to="/register">注册页</router-link>
+    <hr/>
+    <!--通过router-View来渲染页面-->
+    <router-view></router-view>
+
+</div>
+<script src="../dist/build.js"></script>
+<!--<script src="../node_modules/vue/dist/vue.js"></script>-->
+<!--<script src="../node_modules/vue-router/dist/vue-router.js"></script>-->
+
+<!--<script src="js/login.js"></script>-->
+<!--<script src="js/register.js"></script>-->
+<!--<script>-->
+
+    <!--//通过方法优化导入-->
+    <!--function route(name) {-->
+        <!--return {   // 编写多个路由规则-->
+            <!--path:"/" + name,-->
+            <!--component:import("./js/" + name + ".js")-->
+        <!--}-->
+    <!--}-->
+
+    <!--//定义一个Vue-Router对象，通过路由来区分组件-->
+    <!--let router = new VueRouter({-->
+        <!--routes:[-->
+            <!--// route('login'),route('register')-->
+
+            <!--{path:"/login",component:login},-->
+            <!--{path:"/register",component:register}-->
+        <!--]-->
+    <!--});-->
+
+    <!--let vm = new Vue({-->
+        <!--el: '#app',-->
+        <!--components: {-->
+            <!--login,-->
+            <!--register-->
+        <!--},-->
+        <!--data:{-->
+            <!--showLogin:true-->
+        <!--},-->
+        <!--//添加到Vue中引用-->
+        <!--router:router-->
+    <!--});-->
+<!--</script>-->
+</body>
+</html>
