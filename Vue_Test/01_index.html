@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<title>Vue_Demo</title>
-<!--引入Vue的JS库-->
-<script src="node_modules/vue/dist/vue.js"></script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue_Demo</title>
+    <!--引入Vue的JS库-->
+    <script src="node_modules/vue/dist/vue.js"></script>
 </head>
 <body>
 <div id="app">
@@ -11,15 +13,14 @@
         name:{{name}} <br>
         age:{{age}}<br>
     </h5>
+
     <form>
         文本框赋值的标签：v-model：<input type="text" v-model="num"/><br>
+
         直接获取数据方式：{{num}}<br>
-        <button v-on:click="num++"/>
-        点击增加<br>
 
-        <button @click="minus"/>
-        点击减少<br>
-
+        <button v-on:click="num++">点击增加</button>
+        <button @click="minus">点击减少</button>
     </form>
 </div>
 

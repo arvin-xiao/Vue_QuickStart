@@ -5,18 +5,19 @@
     <title>v-else</title>
 </head>
 <body>
+<div id="app">
     <div v-if="Math.random() > 0.9">
         Now you see me
     </div>
     <div v-else>
         Now you don't see me
     </div>
-
-    <script src="./node_modules/vue/dist/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el:'#app'
-        });
-    </script>
+</div>
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#app'
+    });
+</script>
 </body>
 </html>
